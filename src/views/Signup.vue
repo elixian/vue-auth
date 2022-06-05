@@ -12,19 +12,28 @@
   </form>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref } from 'vue'
+import { userStore } from '@/stores/counter';
 
-export default {
-  setup() {
+const user_store = userStore();
+
+
+
     const email = ref('')
     const password = ref('')
 
-    const handleSubmit = () => {
-      console.log(email.value, password.value)
+    const handleSubmit = async() => {
+      try{
+        user_store.setUser({email:email.value, password :password.value})
+      }
+      catch(err){
+      console.log("🚀 ~ file: Signup.vue ~ line 31 ~ handleSubmit ~ err", err)
+        
+      }
+      
     }
 
-    return { handleSubmit, email, password }
-  }
-}
+    
+
 </script>

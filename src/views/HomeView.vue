@@ -14,18 +14,14 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref } from 'vue'
-export default {
-  setup() {
+
+
     const blogs = ref([
       { title: 'Why Coffee is Better than Tea', id: 1 },
       { title: '...Then I Took an Arrow in the Knee', id: 2 },
       { title: 'Mario vs Luigi, Ultimate Showdown', id: 3 },
     ])
-    return { 
-      blogs
-    }
-  }
-}
+
 </script>
